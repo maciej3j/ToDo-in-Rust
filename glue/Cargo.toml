@@ -1,0 +1,13 @@
+[package]
+name = "glue"
+edition = "2024"
+version = "0.0.1"
+
+[dependencies]
+actix-web = { version = "4.14.0", optional = true }
+serde = { version = "1.0.229", features = ["derive"] }
+thiserror = "2.0.19"
+
+[features]
+default = ["actix-web"]
+actix-web = ["dep:actix-web"]
