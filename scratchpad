@@ -1,0 +1,13 @@
+1. What does the --release argument in Cargo do when added to a build and run?
+This flag sets the cargo run to release mode, which gives longer compilation time for better optimizations and performance in our binary.
+2. How can you enable an enum or struct to be passed into the println! macro?
+Just implement std::fmt::Display for your struct or enum and you are good to go!
+3. In nanoservices, how does a basic service help keep technical debt down?
+By splitting responsibilites across different services you get decoupled, easy to refactor and easy to change (ETC) code.
+4. How does returning the same error type in functions reduce the amount of code we write?
+We don't need to match every possible error, but just check it by question mark or single check I guess.
+5. How do we point to another Cargo project so we can compile that Cargo project into another Cargo project?
+Just set it as a dependency in Cargo.toml [dependencies] section and provide a path to your another crate if it is in the same workspace, otherwise provide version to download it from crates.io.
+6. If we have a Cargo project, how can we choose to include an optional dependency to be compiled into out project?
+By setting optional = true when defining a dependency, for example:
+serde_json = { version = "1", optional = true }
