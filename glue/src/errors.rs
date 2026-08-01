@@ -56,3 +56,18 @@ impl ResponseError for NanoServiceError {
         HttpResponse::build(status_code).json(self.message.clone())
     }
 }
+
+#[macro_export]
+macro_rules! safe_eject {
+    ($e:expr, $err_status:expr) => {
+        $e.map_err(|x| NanoServiceError::new(x.to_string(), $err_status))
+    };
+    ($e:expr, $err_status:expr, $message_context:expr) => {
+        $e.map_err(|x| {
+            NanoServiceError::new(
+                format!("{}: {}", $message_context, x.to_string()),
+                $err_status,
+            )
+        })
+    };
+}
