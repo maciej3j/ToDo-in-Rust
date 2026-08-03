@@ -11,3 +11,10 @@ Just set it as a dependency in Cargo.toml [dependencies] section and provide a p
 6. If we have a Cargo project, how can we choose to include an optional dependency to be compiled into out project?
 By setting optional = true when defining a dependency, for example:
 serde_json = { version = "1", optional = true }
+
+1. What parameter is passed to HttpServer::new function and what does the parameter return?
+To HttpServer::new function is passed a factory function (usually closure) that constructs our http server by constructing App struct with routes, ServiceConfig, etc.
+2. How can we work out what data types an API function can return automatically?
+By looking at the implemented traits for HttpResponse in (for example) actix-web framework, where we can see that we can without problems return str, String, numbers, etc.
+3. How can we enable data handling across all cargo workspaces, including the HTTP response?
+I 
