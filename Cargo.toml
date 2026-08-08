@@ -2,6 +2,7 @@
 resolver = "3"
 members = [
     "glue",
+    "ingress",
     "nanoservices/to_do/core",
     "nanoservices/to_do/dal",
     "nanoservices/to_do/networking/actix_server"
