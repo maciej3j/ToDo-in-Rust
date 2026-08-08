@@ -1,0 +1,15 @@
+[package]
+name = "ingress"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+actix-web = "4.14.0"
+mime_guess = "2.0.5"
+rust-embed = "8.12.0"
+tokio = { version = "1.53.1", features = ["macros", "rt-multi-thread"] }
+to_do_server = {
+    path = "../nanoservices/to_do/networking/actix_server/",
+    package = "to-do-actix-server"
+}
+actix-cors = "0.7.1"
